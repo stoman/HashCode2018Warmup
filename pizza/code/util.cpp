@@ -44,4 +44,8 @@ void readInput(Input& input, istream& in) {
 			input.sliced[i][j] = false;
 		}
 	}
+	input.bestPiece.resize(input.r);
+	for(int i = 0; i < input.r; i++) {
+		input.bestPiece[i].resize(input.c);
+	}
 }
