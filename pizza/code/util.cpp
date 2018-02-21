@@ -20,6 +20,10 @@ struct SomeClass {
 };
 
 struct Input {
+	int r, c, l, h;
+	vector<vector<bool>> pizza;
+	vector<vector<bool>> sliced;
+	vector<vector<pair<int, int>>> bestPiece;
 };
 
 //input handling

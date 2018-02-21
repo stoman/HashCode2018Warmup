@@ -1,6 +1,7 @@
 #pragma once
 #include "util.cpp"
 
-void part2(Input& input) {
-	//TODO fill me
+int score(pair<int, int> &field, Input &input) {
+	//update input->bestPiece
 }
+
