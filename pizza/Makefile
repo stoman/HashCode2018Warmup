@@ -13,7 +13,7 @@ visualizations: $(ALLVISUALIZATIONS)
 sample: $(foreach strategy, $(STRATEGIES), data/$(strategy).example.ans)
 
 build: clean
-	zip -r build.zip code visualizations README.md Makefile LICENSE .gitignore grader
+	zip -r build.zip code visualize README.md Makefile LICENSE .gitignore grader
 
 clean:
 	rm -f $(MAINFILE) $(ALLOUTPUTS) $(ALLVISUALIZATIONS) grader/main grades.html
