@@ -12,7 +12,7 @@ visualizations: $(ALLVISUALIZATIONS)
 
 sample: $(foreach strategy, $(STRATEGIES), data/$(strategy).example.ans)
 
-build: clean
+build:
 	zip -r build.zip code visualize README.md Makefile LICENSE .gitignore grader
 
 clean:

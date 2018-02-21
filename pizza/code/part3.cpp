@@ -31,6 +31,9 @@ void run(Input &input) {
         
            input.answerRow.push_back({sx, sx+slice_x-1});
         input.answerColumn.push_back({sy, sy+slice_y-1});
+
+        if (input.answerColumn.size() % 100 == 0)
+            debug(input.answerColumn.size());
         
         for (int i = sx; i < sx + slice_x; i++)
             for (int j = sy; j < sy + slice_y; j++)
