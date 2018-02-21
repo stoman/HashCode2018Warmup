@@ -7,14 +7,16 @@ void update_range(int sx, int sy, int fx, int fy, Input &input) {
         for (int j = sy; j < fy; j++) 
         {
             pair<int,int> current_field = {i, j};
+            
             int current_score = score(current_field, input);
+            
             current_field = {i, j};
             update(current_field, current_score, input);
         }
     }
 }
 
-int run(Input &input) {
+void run(Input &input) {
 	//score all fields
     update_range(0, 0, input.r, input.c, input);
 
