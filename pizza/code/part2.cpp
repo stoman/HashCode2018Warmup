@@ -22,6 +22,7 @@ int score(pair<int, int> &field, Input &input) {
 
 	//try slices
 	int max = -1;
+	pair<int, int> best;
 	for(auto &slice: slices) {
 		if(field.first + slice.first - 1 >= input.r) break;
 		if(field.second + slice.second - 1 >= input.c) break;
@@ -39,7 +40,10 @@ int score(pair<int, int> &field, Input &input) {
 				}
 			}
 		}
-		if(valid && s > max) max = s;
+		if(valid && s > max) {
+			max = s;
+			input.bestPiece[field.first][field.second] = slice;
+		}
 	}
 
 	//return
