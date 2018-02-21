@@ -24,24 +24,27 @@ int score(pair<int, int> &field, Input &input) {
 	int max = -1;
 	pair<int, int> best;
 	for(auto &slice: slices) {
-		if(field.first + slice.first - 1 >= input.r) break;
-		if(field.second + slice.second - 1 >= input.c) break;
 		bool valid = true;
-		int s = 0;
+		if(field.first + slice.first - 1 >= input.r) valid = false;
+		if(field.second + slice.second - 1 >= input.c) valid = false;
+		int sc = 0;
+		int tomato = 0;
 		for(int i = field.first; i < field.first + slice.first; i++) {
 			for(int j = field.second; j < field.second + slice.second; j++) {
 				if(input.sliced[i][j]) valid = false;
+				if(input.pizza[i][j]) tomato++;
 				for(auto &neigh: neighbors) {
 					if(0 <= i + neigh.first && i + neigh.first < input.r && 0 <= j + neigh.second && j + neigh.second < input.c) {
 						if(input.sliced[i + neigh.first][j + neigh.second]) {
-							s++;
+							sc++;
 						}
 					}
 				}
 			}
 		}
-		if(valid && s > max) {
-			max = s;
+		if(tomato < input.l || slice.first * slice.second - tomato < input.l) valid = false;
+		if(valid && sc > max) {
+			max = sc;
 			input.bestPiece[field.first][field.second] = slice;
 		}
 	}
