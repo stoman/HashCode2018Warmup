@@ -9,7 +9,7 @@ void update_range(int sx, int sy, int fx, int fy, Input &input) {
             pair<int,int> current_field = {i, j};
             int current_score = score(current_field, input);
             current_field = {i, j};
-            update(current_field, current_score);
+            update(current_field, current_score, input);
         }
     }
 }
@@ -34,7 +34,7 @@ int run(Input &input) {
             for (int j = sy; j < sy + slice_y; j++)
                 input.sliced[i][j] = true;
         
-        update_range(sx-15, sy-15, sx+15, sy+15, input);
+        update_range(sx-13, sy-13, sx+slice_x, sy+slice_y, input);
     }
 }
 
