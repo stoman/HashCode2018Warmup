@@ -14,6 +14,17 @@ typedef long long ll;
 
 using namespace std;
 
+
+void debug(string s)
+{
+	cerr << ">>> " << s << endl;
+}
+
+void debug(int x)
+{
+	cerr << ">>> " << x << endl; 
+}
+
 //util classes
 struct Input {
 	int r, c, l, h;
