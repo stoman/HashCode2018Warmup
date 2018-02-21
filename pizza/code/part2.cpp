@@ -25,8 +25,8 @@ int score(pair<int, int> &field, Input &input) {
 	pair<int, int> best;
 	for(auto &slice: slices) {
 		bool valid = true;
-		if(field.first + slice.first - 1 >= input.r) valid = false;
-		if(field.second + slice.second - 1 >= input.c) valid = false;
+		if(field.first + slice.first - 1 >= input.r) continue;
+		if(field.second + slice.second - 1 >= input.c) continue;
 		int sc = 0;
 		int tomato = 0;
 		for(int i = field.first; i < field.first + slice.first; i++) {
@@ -38,6 +38,9 @@ int score(pair<int, int> &field, Input &input) {
 						if(input.sliced[i + neigh.first][j + neigh.second]) {
 							sc++;
 						}
+					}
+					else {
+						sc++;
 					}
 				}
 			}

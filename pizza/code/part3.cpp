@@ -29,8 +29,8 @@ void run(Input &input) {
         int slice_x = input.bestPiece[sx][sy].first;
         int slice_y = input.bestPiece[sx][sy].second;
         
-           input.answerRow.push_back({sx, sx+slice_x});
-        input.answerColumn.push_back({sy, sy+slice_y});
+           input.answerRow.push_back({sx, sx+slice_x-1});
+        input.answerColumn.push_back({sy, sy+slice_y-1});
         
         for (int i = sx; i < sx + slice_x; i++)
             for (int j = sy; j < sy + slice_y; j++)
