@@ -14,11 +14,6 @@ typedef long long ll;
 using namespace std;
 
 //util classes
-struct SomeClass {
-	int n;
-	SomeClass(int n): n(n) {};
-};
-
 struct Input {
 	int r, c, l, h;
 	vector<vector<bool>> pizza;
