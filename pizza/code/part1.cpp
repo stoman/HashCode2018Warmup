@@ -19,7 +19,7 @@ pair<int, int> nextField() {
 void update(pair<int, int> &field, int newScore, Input &input) {
 	int r = field.first;
 	int c = field.second;
-	if (r < 0 && r >= input.r && c < 0 && c >= input.c)
+	if (r < 0 || r >= input.r || c < 0 || c >= input.c)
 		return;
 
 	// erase old score if it exists
