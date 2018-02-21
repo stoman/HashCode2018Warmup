@@ -14,15 +14,14 @@ int main(int argc, char* argv[]) {
 
 	//read command line args
 	string algorithm = "";
-	if(argc > 1) {
+	if(argc > 0) {
 		algorithm = argv[1];
 	}
 		
 	//solve problem
 	cerr << "using algorithm " << algorithm << endl;
 	if(algorithm == "naive") {
-		part1(input);
-		part2(input);
+		run(input);
 	}
 	else {
 		cerr << "unknown algorithm" << endl;
@@ -30,5 +29,11 @@ int main(int argc, char* argv[]) {
 	}
 	
 	//print output
-	//TODO print output
+	cout << input.answerColumn.size() << endl;
+	for(int i = 0; i < input.answerColumn.size(); i++) {
+		cout << input.answerRow[i].first << ' ';
+		cout << input.answerColumn[i].first << ' ';
+		cout << input.answerRow[i].second << ' ';
+		cout << input.answerColumn[i].second << '\n';
+	}
 };

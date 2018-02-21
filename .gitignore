@@ -3,10 +3,10 @@
 *.ans
 *.png
 *.zip
-code/main
-grader/main
-visualize/vis
-grades.html
+*/code/main
+*/grader/main
+*/visualize/vis
+*/grades.html
 
 # Compiled Object files
 *.slo

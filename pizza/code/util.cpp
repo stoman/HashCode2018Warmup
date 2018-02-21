@@ -19,9 +19,28 @@ struct Input {
 	vector<vector<bool>> pizza;
 	vector<vector<bool>> sliced;
 	vector<vector<pair<int, int>>> bestPiece;
+	vector<pair<int, int>> answerColumn;
+	vector<pair<int, int>> answerRow;
 };
 
 //input handling
 void readInput(Input& input, istream& in) {
-	//TODO read input
+	in >> input.r >> input.c >> input.l >> input.h;
+	char c = ' ';
+	input.pizza.resize(input.r);
+	for(int i = 0; i < input.r; i++) {
+		input.pizza[i].resize(input.c);
+		for(int j = 0; j < input.c; j++) {
+			while(c != 'T' && c != 'M') in >> c;
+			input.pizza[i][j] = c == 'T';
+			in >> c;
+		}
+	}
+	input.sliced.resize(input.r);
+	for(int i = 0; i < input.r; i++) {
+		input.sliced[i].resize(input.c);
+		for(int j = 0; j < input.c; j++) {
+			input.sliced[i][j] = false;
+		}
+	}
 }
