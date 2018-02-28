@@ -17,7 +17,7 @@ set offsets 5, 5, 5, 5
 # if ( file_exists(datafile2) ) load datafile2
 
 # Example: plot both
-plot datafile u 1:2 with lines title "Input", \
+plot datafile u 1:2 with filledcurves title "Input", \
     datafile2 u 1:2 with lines title "Output"
 
 xspan = GPVAL_DATA_X_MAX - GPVAL_DATA_X_MIN
