@@ -20,7 +20,12 @@ int main(int argc, char* argv[]) {
 		
 	//solve problem
 	cerr << "using algorithm " << algorithm << endl;
-	if(algorithm == "naive") {
+	if(algorithm == "grid50") {
+		input.gridsize = 50;
+		astar(input);
+	}
+	else if(algorithm == "grid500") {
+		input.gridsize = 500;
 		astar(input);
 	}
 	else {
