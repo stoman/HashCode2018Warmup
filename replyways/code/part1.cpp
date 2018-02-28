@@ -23,9 +23,9 @@ void astar(Input& input) {
         debug("Current point: ");
         debug(cur);
         debug("Estimated distance to goal: ");
-        debug((int)h.begin().first);
+        debug((int)h.begin()->first);
         
-        h.remove(h.begin());
+        h.erase(h.begin());
         
         if (cur == 1)
             break;
@@ -41,7 +41,7 @@ void astar(Input& input) {
                 continue;
                 
             p[k] = cur;
-            h.remove({d[k]+sqdist(input.points[k], input.points[1]), k});
+            h.erase({d[k]+sqdist(input.points[k], input.points[1]), k});
             d[k] = tscore;
             h.insert({d[k]+sqdist(input.points[k], input.points[1]), k});            
         }

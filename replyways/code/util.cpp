@@ -42,3 +42,5 @@ void readInput(Input& input, istream& in) {
 		input.points[i] = make_pair(x, y);
 	}
 }
+
+vector<int> neighbors(Input& input, int a);
