@@ -40,20 +40,20 @@ int gradeFile(ifstream& in, ifstream& ans) {
     return 0;
   }
 
-  long amount = 0;
+  int amount = 0;
   amount = stoi(ansstr);
 
-  long lastx = -10000;
-  long lasty = -10000;
-  long dist = 0;
+  ll lastx, lasty, nextx, nexty = -10000;
+  bool first = true;
+  double dist = 0;
   for (int i = 0; i < amount; i++) {
-    long nextx, nexty;
+    lastx = nextx;
+    lasty = nexty;
     ans >> nextx >> nexty;
-    if (lastx == -10000) {
-      lastx = nextx;
-      lasty = nexty;
+    if (!first) {
+      dist += distance(lastx, lasty, nextx, nexty);
     }
-    dist += distance(lastx, lasty, nextx, nexty);
+    first = false;
   }
 
   //compute score
