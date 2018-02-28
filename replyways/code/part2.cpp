@@ -22,6 +22,7 @@ bool linesIntersect(Point &p1, Point &p2, Point &q1, Point &q2)
 
 vector<int> neighbors(Input& input, int a) 
 {
+	vector<int>& triangles = closetriangles(input, a);
 	vector<int> validPoints;
 	Point &x = input.points[a];
 	for (int k : closepoints(input, a))
@@ -32,7 +33,7 @@ vector<int> neighbors(Input& input, int a)
 		}
 		Point &y = input.points[k];
 		bool valid = true;
-		for (int i = 0; i < input.n; ++i)
+		for (int i: triangles)
 		{
 			Point &a = input.triangles[3*i];
 			Point &b = input.triangles[3*i+1];

@@ -1,6 +1,6 @@
 CXX=g++ -std=c++11
 MAINFILE=code/main
-STRATEGIES=grid50 grid500
+STRATEGIES=grid50 grid100 grid500
 ALLOUTPUTS=$(foreach strategy, $(STRATEGIES), $(patsubst data/%.in, data/$(strategy).%.ans, $(wildcard data/*.in)))
 ALLVISUALIZATIONS=$(foreach strategy, $(STRATEGIES), $(patsubst data/%.in, data/$(strategy).%.png, $(filter-out data/big.in, $(wildcard data/*.in))))
 
@@ -39,6 +39,9 @@ data/naive.%.ans: $(MAINFILE)
 data/grid50.%.ans: $(MAINFILE)
 	$(MAINFILE) grid50 < $(@:data/grid50.%.ans=data/%.in) > $@
 	
+data/grid100.%.ans: $(MAINFILE)
+	$(MAINFILE) grid100 < $(@:data/grid100.%.ans=data/%.in) > $@
+	
 data/grid500.%.ans: $(MAINFILE)
 	$(MAINFILE) grid500 < $(@:data/grid500.%.ans=data/%.in) > $@
 	
@@ -70,6 +73,9 @@ data/naive.%.ans.dat: data/naive.%.ans visualize/AnswerToGnu.class
 data/grid50.%.ans.dat: data/grid50.%.ans visualize/AnswerToGnu.class
 	java -cp visualize AnswerToGnu $(@:data/grid50.%.ans.dat=data/%.in) $(@:%.dat=%) > $@
 
+data/grid100.%.ans.dat: data/grid100.%.ans visualize/AnswerToGnu.class
+	java -cp visualize AnswerToGnu $(@:data/grid100.%.ans.dat=data/%.in) $(@:%.dat=%) > $@
+
 data/grid500.%.ans.dat: data/grid500.%.ans visualize/AnswerToGnu.class
 	java -cp visualize AnswerToGnu $(@:data/grid500.%.ans.dat=data/%.in) $(@:%.dat=%) > $@
 
@@ -83,6 +89,9 @@ data/naive.%.png: data/naive.%.ans.dat data/%.in.dat
 
 data/grid50.%.png: data/grid50.%.ans.dat data/%.in.dat
 	gnuplot -e "datafile='$(@:data/grid50.%.png=data/%.in.dat)';datafile2='$(@:%.png=%.ans.dat)'; outputname='$@'" visualize/plot_output.plg
+
+data/grid100.%.png: data/grid100.%.ans.dat data/%.in.dat
+	gnuplot -e "datafile='$(@:data/grid100.%.png=data/%.in.dat)';datafile2='$(@:%.png=%.ans.dat)'; outputname='$@'" visualize/plot_output.plg
 
 data/grid500.%.png: data/grid500.%.ans.dat data/%.in.dat
 	gnuplot -e "datafile='$(@:data/grid500.%.png=data/%.in.dat)';datafile2='$(@:%.png=%.ans.dat)'; outputname='$@'" visualize/plot_output.plg

@@ -24,6 +24,10 @@ int main(int argc, char* argv[]) {
 		input.gridsize = 50;
 		astar(input);
 	}
+	else if(algorithm == "grid100") {
+		input.gridsize = 100;
+		astar(input);
+	}
 	else if(algorithm == "grid500") {
 		input.gridsize = 500;
 		astar(input);
