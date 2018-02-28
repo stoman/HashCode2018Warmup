@@ -25,12 +25,10 @@ void debug(int x)
 }
 
 //util classes
-struct SomeClass {
-	int n;
-	SomeClass(int n): n(n) {};
-};
-
 struct Input {
+	int n;
+	vector<pair<int, int>> points;// size: 3n + 2, 0: s, 1: f, triangle: 3i+2, 3i+3, 3i+4
+	vector<pair<int, int>> path;
 };
 
 //input handling

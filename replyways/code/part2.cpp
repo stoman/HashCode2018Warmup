@@ -1,6 +1,6 @@
 #pragma once
 #include "util.cpp"
 
-void part2(Input& input) {
+vector<int> neighbors(Input& input, int a) {
 	//TODO fill me
 }
