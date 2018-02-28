@@ -31,9 +31,15 @@ struct Input {
 
 //input handling
 void readInput(Input& input, istream& in) {
+	input.points.resize(2);
+	for(int i = 0; i < input.points.size(); i++) {
+		int x, y;
+		in >> x >> y;
+		input.points[i] = make_pair(x, y);
+	}
 	in >> input.n;
 	input.points.resize(3*input.n + 2);
-	for(int i = 0; i < input.points.size(); i++) {
+	for(int i = 2; i < input.points.size(); i++) {
 		int x, y;
 		in >> x >> y;
 		input.points[i] = make_pair(x, y);
