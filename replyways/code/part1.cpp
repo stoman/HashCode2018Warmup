@@ -12,6 +12,10 @@ double dist(pair<ll,ll> a, pair<ll,ll> b) {
     return sqrt(sq(a.first-b.first) + sq(a.second-b.second)); 
 }
 
+double heur(pair<ll,ll> a, pair<ll,ll> b) {
+    return (abs(a.first-b.first) + abs(a.second-b.second))/1.41422; 
+}
+
 void astar(Input& input) {
     
     int m = input.points.size();
@@ -28,7 +32,7 @@ void astar(Input& input) {
     //    debug("\n");
     //}
     d[0] = 0ll;
-    h.insert({dist(input.points[0], input.points[1]), 0});
+    h.insert({heur(input.points[0], input.points[1]), 0});
     
     while (h.size())    {
         int cur = h.begin()->second;
@@ -54,9 +58,9 @@ void astar(Input& input) {
                 continue;
                 
             p[k] = cur;
-            h.erase({d[k]+dist(input.points[k], input.points[1]), k});
+            h.erase({d[k]+heur(input.points[k], input.points[1]), k});
             d[k] = tscore;
-            h.insert({d[k]+dist(input.points[k], input.points[1]), k});            
+            h.insert({d[k]+heur(input.points[k], input.points[1]), k});            
         }
     }
     
