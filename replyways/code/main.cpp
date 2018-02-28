@@ -20,8 +20,7 @@ int main(int argc, char* argv[]) {
 	//solve problem
 	cerr << "using algorithm " << algorithm << endl;
 	if(algorithm == "naive") {
-		part1(input);
-		part2(input);
+		astar(input);
 	}
 	else {
 		cerr << "unknown algorithm" << endl;
@@ -29,5 +28,13 @@ int main(int argc, char* argv[]) {
 	}
 	
 	//print output
-	//TODO print output
+	if(input.path.size() == 0) {
+		cout << "IMPOSSIBLE" << endl;
+	}
+	else {
+		cout << input.path.size() << endl;
+		for(int i = 0; i < input.path.size(); i++) {
+			cout << input.path[i].first << ' ' << input.path[i].second << endl;
+		}
+	}
 };
