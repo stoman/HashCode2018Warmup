@@ -1,22 +1,23 @@
 #pragma once
 #include "util.cpp"
+#include <cmath>
 
-const ll inf = 1e18;
+const ll inf = 1e14;
 
 ll sq(ll x) {
     return x*x;
 }
 
-ll sqdist(pair<ll,ll> a, pair<ll,ll> b) {
-    return sq(a.first-b.first) + sq(a.second-b.second); 
+double dist(pair<ll,ll> a, pair<ll,ll> b) {
+    return sqrt(sq(a.first-b.first) + sq(a.second-b.second)); 
 }
 
 void astar(Input& input) {
     
     int m = input.points.size();
     vector<int> visited(m, 0), p(m,-1);
-    vector<ll> d(m,inf);
-    set< pair<ll,int> > h;
+    vector<double> d(m,(double)inf);
+    set< pair<double,int> > h;
 
     debug(m); 
     debug("Points:");
@@ -27,7 +28,7 @@ void astar(Input& input) {
         debug("\n");
     }
     d[0] = 0ll;
-    h.insert({sqdist(input.points[0], input.points[1]), 0});
+    h.insert({dist(input.points[0], input.points[1]), 0});
     
     while (h.size())    {
         int cur = h.begin()->second;
@@ -48,14 +49,14 @@ void astar(Input& input) {
             if (visited[k])
                 continue;
             
-            ll tscore = d[cur] + sqdist(input.points[cur], input.points[k]);
+            double tscore = d[cur] + dist(input.points[cur], input.points[k]);
             if (tscore >= d[k])
                 continue;
                 
             p[k] = cur;
-            h.erase({d[k]+sqdist(input.points[k], input.points[1]), k});
+            h.erase({d[k]+dist(input.points[k], input.points[1]), k});
             d[k] = tscore;
-            h.insert({d[k]+sqdist(input.points[k], input.points[1]), k});            
+            h.insert({d[k]+dist(input.points[k], input.points[1]), k});            
         }
     }
     
