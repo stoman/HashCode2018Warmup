@@ -85,13 +85,13 @@ data/grid500.%.ans.dat: data/grid500.%.ans visualize/AnswerToGnu.class
 # 	visualize/vis $(@:%.dat=%) < $(@:data/naive.%.ans.dat=data/%.in) > $@
 
 data/naive.%.png: data/naive.%.ans.dat data/%.in.dat
-	gnuplot -e "datafile='$(@:data/naive.%.png=data/%.in.dat)';datafile2='$(@:%.png=%.ans.dat)'; outputname='$@'" visualize/plot_output.plg
+	-gnuplot -e "datafile='$(@:data/naive.%.png=data/%.in.dat)';datafile2='$(@:%.png=%.ans.dat)'; outputname='$@'" visualize/plot_output.plg
 
 data/grid50.%.png: data/grid50.%.ans.dat data/%.in.dat
-	gnuplot -e "datafile='$(@:data/grid50.%.png=data/%.in.dat)';datafile2='$(@:%.png=%.ans.dat)'; outputname='$@'" visualize/plot_output.plg
+	-gnuplot -e "datafile='$(@:data/grid50.%.png=data/%.in.dat)';datafile2='$(@:%.png=%.ans.dat)'; outputname='$@'" visualize/plot_output.plg
 
 data/grid100.%.png: data/grid100.%.ans.dat data/%.in.dat
-	gnuplot -e "datafile='$(@:data/grid100.%.png=data/%.in.dat)';datafile2='$(@:%.png=%.ans.dat)'; outputname='$@'" visualize/plot_output.plg
+	-gnuplot -e "datafile='$(@:data/grid100.%.png=data/%.in.dat)';datafile2='$(@:%.png=%.ans.dat)'; outputname='$@'" visualize/plot_output.plg
 
 data/grid500.%.png: data/grid500.%.ans.dat data/%.in.dat
-	gnuplot -e "datafile='$(@:data/grid500.%.png=data/%.in.dat)';datafile2='$(@:%.png=%.ans.dat)'; outputname='$@'" visualize/plot_output.plg
+	-gnuplot -e "datafile='$(@:data/grid500.%.png=data/%.in.dat)';datafile2='$(@:%.png=%.ans.dat)'; outputname='$@'" visualize/plot_output.plg
