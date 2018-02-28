@@ -18,7 +18,7 @@ set offsets 5, 5, 5, 5
 
 # Example: plot both
 plot datafile u 1:2 with filledcurves title "Input", \
-    datafile2 u 1:2 with lines title "Output"
+    datafile2 u 1:2 with linespoints title "Output"
 
 xspan = GPVAL_DATA_X_MAX - GPVAL_DATA_X_MIN
 yspan = GPVAL_DATA_Y_MAX - GPVAL_DATA_Y_MIN
