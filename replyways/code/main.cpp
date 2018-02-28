@@ -20,8 +20,7 @@ int main(int argc, char* argv[]) {
 	//solve problem
 	cerr << "using algorithm " << algorithm << endl;
 	if(algorithm == "naive") {
-		part1(input);
-		part2(input);
+		astar(input);
 	}
 	else {
 		cerr << "unknown algorithm" << endl;
