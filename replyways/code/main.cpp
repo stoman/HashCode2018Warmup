@@ -33,7 +33,7 @@ int main(int argc, char* argv[]) {
 	}
 	else {
 		cout << input.path.size() << endl;
-		for(int i = 0; i < input.path.size(); i++) {
+		for(int i = input.path.size() - 1; i >= 0; i--) {
 			cout << input.path[i].first << ' ' << input.path[i].second << endl;
 		}
 	}
