@@ -1,5 +1,6 @@
 #pragma once
 #include "util.cpp"
+#include "part3.cpp"
 
 typedef pair<ll,ll> Point;
 
@@ -23,29 +24,33 @@ vector<int> neighbors(Input& input, int a)
 {
 	vector<int> validPoints;
 	Point &x = input.points[a];
-	for (int k = 0; k < input.points.size(); k++)
+	vector<vector<int>> neighbors = closepoints(input, a);
+	for (const vector<int> vec : neighbors)
 	{
-		if (k == a)
+		for (int k : vec)
 		{
-			continue;
-		}
-		Point &y = input.points[k];
-		bool valid = true;
-		for (int i = 0; i < input.n; ++i)
-		{
-			Point &a = input.triangles[3*i];
-			Point &b = input.triangles[3*i+1];
-			Point &c = input.triangles[3*i+2];
-			
-			if (linesIntersect(a, b, x, y) || linesIntersect(b, c, x, y) || linesIntersect(a, c, x, y))
+			if (k == a)
 			{
-				valid = false;
-				break;
+				continue;
 			}
-		}
-		if (valid)
-		{
-			validPoints.push_back(k);
+			Point &y = input.points[k];
+			bool valid = true;
+			for (int i = 0; i < input.n; ++i)
+			{
+				Point &a = input.triangles[3*i];
+				Point &b = input.triangles[3*i+1];
+				Point &c = input.triangles[3*i+2];
+				
+				if (linesIntersect(a, b, x, y) || linesIntersect(b, c, x, y) || linesIntersect(a, c, x, y))
+				{
+					valid = false;
+					break;
+				}
+			}
+			if (valid)
+			{
+				validPoints.push_back(k);
+			}
 		}
 	}
 	stringstream ss;
