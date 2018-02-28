@@ -6,10 +6,24 @@
 #include <map>
 #include <set>
 #include <string>
+#include <cctype>
+#include <math.h>
 
 #include "../code/util.cpp"
 
 using namespace std;
+
+double distance(double x1, double y1, double x2, double y2)
+{
+  double x = x1 - x2; //calculating number to square in next step
+  double y = y1 - y2;
+  double dist;
+
+  dist = pow(x, 2) + pow(y, 2);       //calculating Euclidean distance
+  dist = sqrt(dist);                  
+
+  return dist;
+}
 
 //grade one single test case
 int gradeFile(ifstream& in, ifstream& ans) {
@@ -19,11 +33,35 @@ int gradeFile(ifstream& in, ifstream& ans) {
   
   //read answer
   //TODO read answer
+  string ansstr;
+
+  ans >> ansstr;
+  if (!isdigit(ansstr[0])) {
+    return 0;
+  }
+
+  long amount = 0;
+  amount = stoi(ansstr);
+
+  long lastx = -10000;
+  long lasty = -10000;
+  long dist = 0;
+  for (int i = 0; i < amount; i++) {
+    long nextx, nexty;
+    ans >> nextx >> nexty;
+    if (lastx == -10000) {
+      lastx = nextx;
+      lasty = nexty;
+    }
+    dist += distance(lastx, lasty, nextx, nexty);
+  }
 
   //compute score
   //TODO compute score
+  double oneover = (1 / dist);
+  double score = 1000000 * oneover;
 
-  return -1;
+  return score;
 }
 
 //iterate over all test cases

@@ -11,8 +11,15 @@ typedef long long ll;
 #include <utility>
 #include <vector>
 #include <set>
+#include <sstream>
 
 using namespace std;
+
+template<typename T>
+void debug (T x)
+{
+	cerr << ">>> " << x << endl;
+}
 
 void debug(string s)
 {
