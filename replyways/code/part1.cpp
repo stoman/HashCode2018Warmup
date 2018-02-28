@@ -17,7 +17,8 @@ void astar(Input& input) {
     vector<int> visited(m, 0), p(m,-1);
     vector<ll> d(m,inf);
     set< pair<ll,int> > h;
- 
+
+    debug(m); 
     debug("Points:");
     for (int i = 0; i < m; i++)
     {    
@@ -40,7 +41,7 @@ void astar(Input& input) {
         
         if (cur == 1)
             break;
-        
+
         auto nbh = neighbors(input, cur);
         for (int i = 0; i < nbh.size(); i++)    {
             int k = nbh[i];
