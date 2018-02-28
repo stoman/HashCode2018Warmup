@@ -13,7 +13,7 @@ ll sqdist(pair<ll,ll> a, pair<ll,ll> b) {
 
 void astar(Input& input) {
     
-    int m = 3*input.n + 2;
+    int m = input.points.size();
     vector<int> visited(m, 0), p(m,-1);
     vector<ll> d(m,inf);
     set< pair<ll,int> > h;
