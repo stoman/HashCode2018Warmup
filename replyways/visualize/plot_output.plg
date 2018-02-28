@@ -17,8 +17,8 @@ set offsets 5, 5, 5, 5
 # if ( file_exists(datafile2) ) load datafile2
 
 # Example: plot both
-plot datafile u 1:2:3 with points pt 5 palette title "Input", \
-    datafile2 u 1:2:3:4:5 with vectors palette title "Output"
+plot datafile u 1:2 with lines title "Input", \
+    datafile2 u 1:2 with lines title "Output"
 
 xspan = GPVAL_DATA_X_MAX - GPVAL_DATA_X_MIN
 yspan = GPVAL_DATA_Y_MAX - GPVAL_DATA_Y_MIN

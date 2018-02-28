@@ -1,10 +1,6 @@
-import java.awt.Color;
-import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileReader;
 import java.io.IOException;
-import java.util.ArrayList;
-import java.util.List;
 import java.util.Scanner;
 
 public class AnswerToGnu {
@@ -24,14 +20,21 @@ public class AnswerToGnu {
 
 		// read infile
 		
-		BufferedReader ansscan = new BufferedReader(new FileReader(ans));
+		Scanner ansscan = new Scanner(new FileReader(ans));
 
 		// read ansfile
-
+		
+		if (!ansscan.hasNextInt()) {
+			System.out.println();
+			return;
+		}
+		int num = ansscan.nextInt();
+		for (int i = 0; i < num; i++) {
+			System.out.println(ansscan.nextInt() + " " + ansscan.nextInt());
+		}
 		// sysout 
 		// "set object i rect from x, y to x, y fs empty border lc palette frac x"
 		// "set label i at x,y front center"
-
 	}
 
 	public static double toFrac(int n) {
