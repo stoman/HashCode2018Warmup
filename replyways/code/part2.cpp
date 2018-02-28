@@ -28,11 +28,10 @@ vector<int> neighbors(Input& input, int a)
 		bool valid = true;
 		for (int i = 0; i < input.n; ++i)
 		{
-			Point &a = input.points[3*i+2];
-			Point &b = input.points[3*i+3];
-			Point &c = input.points[3*i+4];
+			Point &a = input.triangles[3*i];
+			Point &b = input.triangles[3*i+1];
+			Point &c = input.triangles[3*i+2];
 			
-			// check lines ab, bc, ca
 			if (linesIntersect(a, b, x, y) || linesIntersect(b, c, x, y) || linesIntersect(a, c, x, y))
 			{
 				valid = false;

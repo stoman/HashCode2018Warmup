@@ -10,7 +10,7 @@ set offsets 5, 5, 5, 5
 
 set palette defined ( 0 '#00ff00', 1 '#ff0000')
 
-plot datafile u 1:2 with lines pt 5
+plot datafile u 1:2 with lines
 
 xspan = GPVAL_DATA_X_MAX - GPVAL_DATA_X_MIN
 yspan = GPVAL_DATA_Y_MAX - GPVAL_DATA_Y_MIN

@@ -58,13 +58,13 @@ data/%.in.dat: visualize/InputToGnu.class
 # One block per algorithm
 
 # Java Example
-# data/naive.%.ans.dat: data/naive.%.ans visualize/AnswerToGnu.class
-# 	java -cp visualize AnswerToGnu $(@:data/naive.%.ans.dat=data/%.in) $(@:%.dat=%) > $@
+data/naive.%.ans.dat: data/naive.%.ans visualize/AnswerToGnu.class
+	java -cp visualize AnswerToGnu $(@:data/naive.%.ans.dat=data/%.in) $(@:%.dat=%) > $@
 
 # naive output pictures
 
-data/naive.%.ans.dat: data/naive.%.ans visualize/vis
-	visualize/vis $(@:%.dat=%) < $(@:data/naive.%.ans.dat=data/%.in) > $@
+# data/naive.%.ans.dat: data/naive.%.ans visualize/vis
+# 	visualize/vis $(@:%.dat=%) < $(@:data/naive.%.ans.dat=data/%.in) > $@
 
 data/naive.%.png: data/naive.%.ans.dat data/%.in.dat
-	gnuplot -e "datafile='$(@:data/naive.%.png=data/%.in.dat)';datafile2='$(@:%.png=%.ans.dat)'; outputname='$@'" visualize/plot_balloons.plg
+	gnuplot -e "datafile='$(@:data/naive.%.png=data/%.in.dat)';datafile2='$(@:%.png=%.ans.dat)'; outputname='$@'" visualize/plot_output.plg
