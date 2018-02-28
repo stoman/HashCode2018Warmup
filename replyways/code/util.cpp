@@ -15,14 +15,11 @@ typedef long long ll;
 
 using namespace std;
 
-void debug(string s)
-{
-	cerr << ">>> " << s << endl;
-}
 
-void debug(int x)
+template<typename T>
+void debug (T x)
 {
-	cerr << ">>> " << x << endl; 
+	cerr << ">>> " << x << endl;
 }
 
 //util classes

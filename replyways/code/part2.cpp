@@ -45,7 +45,7 @@ vector<int> neighbors(Input& input, int a)
 		}
 	}
 	stringstream ss;
-	ss << "Point " << a << " has " << validPoints.size() << " neighbors" << endl;
+	ss << "Point " << a << " has " << validPoints.size() << " neighbors";
 	debug(ss.str());
 	return validPoints;	
 }
