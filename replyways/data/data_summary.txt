@@ -1,0 +1,22 @@
+File 1
+
+start 0 1
+end 1000 1000
+obstacles 10.000
+
+File 2
+
+start 0 1
+end 1000 1000
+obstacles 10.000
+
+File 3
+
+start 2790 8260
+end 50 2980
+obstacles 20.000
+
+File 4
+start 2130 7710
+end 8990 -4270
+obstacles 20.000
