@@ -3,8 +3,12 @@
 
 const ll inf = 1e18;
 
+ll sq(ll x) {
+    return x*x;
+}
+
 ll sqdist(pair<ll,ll> a, pair<ll,ll> b) {
-    return (a.first-b.first)*(a.first-b.first) + (a.second-b.second)*(a.second-b.second); 
+    return sq(a.first-b.first) + sq(a.second-b.second); 
 }
 
 void astar(Input& input) {
@@ -14,6 +18,13 @@ void astar(Input& input) {
     vector<ll> d(m,inf);
     set< pair<ll,int> > h;
  
+    debug("Points:");
+    for (int i = 0; i < m; i++)
+    {    
+        debug(input.points[i].first); 
+        debug(input.points[i].second);
+        debug("\n");
+    }
     d[0] = 0ll;
     h.insert({sqdist(input.points[0], input.points[1]), 0});
     
@@ -47,6 +58,6 @@ void astar(Input& input) {
         }
     }
     
-    for (int i = 1; p[i] != -1; i = p[i])
+    for (int i = 1; i != -1; i = p[i])
         input.path.push_back(input.points[i]);
 }
