@@ -29,7 +29,7 @@ int main(int argc, char* argv[]) {
 	}
 	
 	//print output
-	if(input.path.size() == 0) {
+	if(input.path.size() <= 1) {
 		cout << "IMPOSSIBLE" << endl;
 	}
 	else {

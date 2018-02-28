@@ -19,24 +19,24 @@ void astar(Input& input) {
     vector<double> d(m,(double)inf);
     set< pair<double,int> > h;
 
-    debug(m); 
-    debug("Points:");
-    for (int i = 0; i < m; i++)
-    {    
-        debug(input.points[i].first); 
-        debug(input.points[i].second);
-        debug("\n");
-    }
+    //debug(m); 
+    //debug("Points:");
+    //for (int i = 0; i < m; i++)
+    //{    
+    //    debug(input.points[i].first); 
+    //    debug(input.points[i].second);
+    //    debug("\n");
+    //}
     d[0] = 0ll;
     h.insert({dist(input.points[0], input.points[1]), 0});
     
     while (h.size())    {
         int cur = h.begin()->second;
         
-        debug("Current point: ");
-        debug(cur);
-        debug("Estimated distance to goal: ");
-        debug((int)h.begin()->first);
+        //debug("Current point: ");
+        //debug(cur);
+        //debug("Estimated distance to goal: ");
+        debug(h.begin()->first - d[cur]);
         
         h.erase(h.begin());
         

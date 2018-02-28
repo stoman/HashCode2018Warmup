@@ -3,7 +3,7 @@
 
 typedef pair<ll,ll> Point;
 
-ll gridsize = 100;
+ll gridsize = 500;
 ll offset = 20000;
 vector<vector<vector<int>>> grid(2*offset/gridsize, vector<vector<int>>(2*offset/gridsize));
 
