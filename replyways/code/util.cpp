@@ -24,7 +24,7 @@ void debug (T x)
 
 //util classes
 struct Input {
-	int n;
+	int n, gridsize;
 	vector<pair<ll, ll>> triangles;// size: 3n, triangle: 3i, 3i+1, 3i+2
 	vector<pair<ll, ll>> points;// size: 24n + 2, 0: s, 1: f
 	vector<pair<ll, ll>> path;

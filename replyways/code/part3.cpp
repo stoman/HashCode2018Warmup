@@ -3,28 +3,29 @@
 
 typedef pair<ll,ll> Point;
 
-ll gridsize = 500;
 ll offset = 20000;
-vector<vector<vector<int>>> grid(2*offset/gridsize, vector<vector<int>>(2*offset/gridsize));
+vector<vector<vector<int>>> grid;
 
-vector<int>& getcell(int x, int y) {
-  return grid[(x + offset)/gridsize][(y + offset)/gridsize];
+vector<int>& getcell(Input& input, int x, int y) {
+  return grid[(x + offset)/input.gridsize][(y + offset)/input.gridsize];
 }
 
 bool setupdone = false;
-vector<vector<int>> closepoints(Input& input, int a) {
+vector<int> closepoints(Input& input, int a) {
   if(!setupdone) {
+    grid.resize(2*offset/input.gridsize);
+    for(int i = 0; i < grid.size(); i++) {
+      grid[i].resize(2*offset/input.gridsize);
+    }
     for(int i = 0; i < input.points.size(); i++) {
-      getcell(input.points[i].first, input.points[i].second).push_back(i);
+      for(int k = -1; k <= 1; k++) {
+        for(int j = -1; j <= 1; j++) {
+          getcell(input, input.points[i].first + k*input.gridsize, input.points[i].second + j*input.gridsize).push_back(i);
+        }
+      }
     }
     setupdone = true;
   }
 
-  vector<vector<int>> ret;
-  for(int i = -1; i <= 1; i++) {
-    for(int j = -1; j <= 1; j++) {
-      ret.push_back(getcell(input.points[a].first + i*gridsize, input.points[a].second + j*gridsize));
-    }
-  }
-  return ret;
+  return getcell(input, input.points[a].first, input.points[a].second);
 }

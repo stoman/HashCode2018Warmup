@@ -24,33 +24,29 @@ vector<int> neighbors(Input& input, int a)
 {
 	vector<int> validPoints;
 	Point &x = input.points[a];
-	vector<vector<int>> neighbors = closepoints(input, a);
-	for (const vector<int> vec : neighbors)
+	for (int k : closepoints(input, a))
 	{
-		for (int k : vec)
+		if (k == a)
 		{
-			if (k == a)
+			continue;
+		}
+		Point &y = input.points[k];
+		bool valid = true;
+		for (int i = 0; i < input.n; ++i)
+		{
+			Point &a = input.triangles[3*i];
+			Point &b = input.triangles[3*i+1];
+			Point &c = input.triangles[3*i+2];
+			
+			if (linesIntersect(a, b, x, y) || linesIntersect(b, c, x, y) || linesIntersect(a, c, x, y))
 			{
-				continue;
+				valid = false;
+				break;
 			}
-			Point &y = input.points[k];
-			bool valid = true;
-			for (int i = 0; i < input.n; ++i)
-			{
-				Point &a = input.triangles[3*i];
-				Point &b = input.triangles[3*i+1];
-				Point &c = input.triangles[3*i+2];
-				
-				if (linesIntersect(a, b, x, y) || linesIntersect(b, c, x, y) || linesIntersect(a, c, x, y))
-				{
-					valid = false;
-					break;
-				}
-			}
-			if (valid)
-			{
-				validPoints.push_back(k);
-			}
+		}
+		if (valid)
+		{
+			validPoints.push_back(k);
 		}
 	}
 	stringstream ss;
