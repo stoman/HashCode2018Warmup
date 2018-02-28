@@ -4,9 +4,14 @@
 typedef pair<ll,ll> Point;
 
 
-bool ccw(Point &p1, Point &p2, Point &p3)
+int ccw(Point &p1, Point &p2, Point &p3)
 {
-	return (p2.first - p1.first) * (p3.second - p1.second) - (p3.first - p1.first) * (p2.second - p1.second) <= 0;
+	ll z = (p2.first - p1.first) * (p3.second - p1.second) - (p3.first - p1.first) * (p2.second - p1.second);
+	if (z < 0)
+		return -1;
+	if (z > 0)
+		return 1;
+	return 0;
 }
 
 bool linesIntersect(Point &p1, Point &p2, Point &q1, Point &q2)
